@@ -1,9 +1,50 @@
 <html>
     <head>
-        <title>ES 1</title>
+        <title> ES 1 </title>
     </head>
     <body>
+    
+        <button onclick="console.log('click da evento')">
+            cliccami da evento;
+        </button>
+        <button onclick="funzioneClick('script')"
+            >cliccami da script
+        </button>
+        <div id = "div1">
+            <p>NON CLICCARE PER FAVORE</p>
+        </div>
+        <button id="btn3"
+            >cliccami da listener
+        </button>
 
+        <script>
+            // var funzioneClick = function(){
+            //     console.log("click da script");
+            // };
+            var funzioneClick = function(stringa){
+                console.log("click da " + stringa);
+            };
+            var colore;
+            var bottone3 = document.getElementById("btn3");
+            bottone3.addEventListener("click",
+                function(){
 
+                    funzioneClick("listener");
+                    document.getElementById("div1").innerHTML = "<h1> TI AVEVO DETTO DI NON CLICCARE COGLIONE! </h1>"
+                    
+
+                    
+                    if (colore) {
+                    document.getElementById("div1").removeAttribute("style")    
+                    bottone3.removeAttribute("style")
+                    colore = false;   
+                    }else{
+                    document.getElementById("div1").setAttribute("style","color: green")
+                    bottone3.setAttribute("style","background-color: green");
+                    colore = true;
+                    }
+            }
+        );
+        </script>
     </body>
 </html>
